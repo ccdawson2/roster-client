@@ -1,8 +1,8 @@
 var employeeCtrlModule = angular.module('EmployeeCtrl', []);
 
-var authUrl     = 'http://localhost:10100';
-var rosterUrl   = 'http://localhost:10103';
-var employeeUrl = 'http://localhost:10105';
+var authUrl     = 'https://authen-api.herokuapp.com';
+var rosterUrl   = 'https://rosters-api.herokuapp.com';
+var employeeUrl = 'https://employee-api.herokuapp.com';
 
 employeeCtrlModule.controller('EmployeeListCtrl', function($scope, $http, $location) {
 

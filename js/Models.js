@@ -4,8 +4,7 @@ angular.module('app').controller('RosterCtrl', function($scope, $http, $location
 });
 **********/
 
-var rosterUrl   = 'http://localhost:10103';
-
+var rosterUrl   = 'https://rosters-api.herokuapp.com';
 	
 angular.module('app').factory('eventsModel', ['$http', function($http) {
     return {
@@ -24,14 +23,14 @@ angular.module('app').factory('eventsModel', ['$http', function($http) {
         },
         // get all the event
         getevent : function(id) {
-            return $http.get('http://localhost:10103/visits/' + id);
+            return $http.get('https://rosters-api.herokuapp.com/visits/' + id);
         },
 
         // save a comment (pass in comment data)
         save : function(eventData) {
             return $http({
                 method: 'POST',
-                url: 'http://localhost:10103/visits',
+                url: 'https://rosters-api.herokuapp.com/visits',
                 headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
                 data: $.param(eventData)
             });
@@ -39,7 +38,7 @@ angular.module('app').factory('eventsModel', ['$http', function($http) {
 
         // destroy a Event
         destroy : function(id) {
-            return $http.delete('http://localhost:10103/visits/' + id);
+            return $http.delete('https://rosters-api.herokuapp.com/visits/' + id);
         }
     }
 }])

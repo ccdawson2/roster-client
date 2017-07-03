@@ -1,6 +1,6 @@
 var userCtrlModule = angular.module('AuthCtrl', []);
 
-var authUrl = 'http://localhost:10100';
+var authUrl = 'https://authen-api.herokuapp.com';
 
 userCtrlModule.controller('LoginCtrl', function($scope, $http, $location) {
 

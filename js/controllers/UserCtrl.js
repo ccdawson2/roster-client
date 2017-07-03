@@ -1,7 +1,7 @@
 var userCtrlModule = angular.module('UserCtrl', []);
 
-var authUrl   = 'http://localhost:10100';
-var rosterUrl = 'http://localhost:10103';
+var authUrl     = 'https://authen-api.herokuapp.com';
+var rosterUrl   = 'https://rosters-api.herokuapp.com';
 
 userCtrlModule.controller('UserListCtrl', function($scope, $http, $location) {
 
