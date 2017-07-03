@@ -1,0 +1,30 @@
+{
+  "name": "roster",
+  "description": "Employee Roster",
+  "main": "server.js",
+  "authors": [
+    "Chris Dawson"
+  ],
+  "license": "",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.2",
+    "angular-animate": "^1.6.4",
+    "font-awesome": "^4.5.0",
+    "bootstrap": "^3.3.6",
+    "toastr": "^2.1.2",
+    "moment": "^2.18.1",
+    "fullcalendar": "^3.4.0",
+    "scheduler": "^4.4.0",
+    "angular-moment-picker": "^0.0.16"
+  }
+}
