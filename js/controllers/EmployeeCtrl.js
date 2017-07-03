@@ -62,39 +62,35 @@ employeeCtrlModule.controller('EmployeeAddCtrl', function($scope, $http, $locati
 
    $scope.title = "Add Employee";
 
-   $http.get(authUrl + '/api/roles')
+   $http.get(rosterUrl + '/getRoles')
 	.then(function(response) {
 		 var tmp = [];
          console.log(response);
 
-		 if (response.data.length === 0)
-		 {
-	   	    console.log('Creating default roles ...');
-		    $http.post(authUrl + '/api/roles/createdefaults')
-		    .then(function(data) {
-               console.log('Default roles added successfully!');
-               console.log(data);
-			   
-               for(var o in data.data) {
-		          tmp.push(data.data[o].code);}            
-			   
-   		       $scope.roles = tmp;
-		       $scope.selectedRole = tmp[1];
-            }); 
-         };
-		 
          for(var o in response.data) {
 		    tmp.push(response.data[o].code);}
 
   		 $scope.roles = tmp;
-		 $scope.selectedRole = tmp[1];
+		 $scope.selectedRole = tmp[0];
     })
 
     $scope.saveemployee = function() {
 
 		$scope.employee.role = $scope.selectedRole;
-		
-        $http.post(authUrl + '/api/employee', $scope.employee)
+
+console.log($scope.employee);
+
+var req = {
+ method: 'POST',
+ url: employeeUrl + '/employees',
+ headers: {
+   'token': 'xxxxx'
+ },
+ data: $scope.employee
+}
+
+
+        $http(req)
 		.then(function(data) {
             $scope.employee = data;
             $location.path('/employees/list');
@@ -134,7 +130,17 @@ employeeCtrlModule.controller('EmployeeEditCtrl', function($scope, $http, $locat
 
 		$scope.employee.role = $scope.selectedRole;
 				
-        $http.put('/api/employee/' + $scope.employee.id, $scope.employee)
+var req = {
+ method: 'PUT',
+ url: employeeUrl + '/employees/' + $scope.employee.id,
+ headers: {
+   'token': 'xxxxx',
+ },
+ data: $scope.employee
+}
+console.log($scope.employee);
+
+        $http(req)
 		.then(function(response) {
             $scope.employee = response.data[0];
             $location.path('/employees/list');
@@ -158,8 +164,20 @@ employeeCtrlModule.controller('EmployeeViewCtrl', function($scope, $http, $locat
     });
 
     $scope.delete = function() {
+
+       var id = $routeParams.id;
+
+	   console.log('delete id=' + id);
+
+var req = {
+ method: 'DELETE',
+ url: employeeUrl + '/employees/' + id,
+ headers: {
+   'token': 'xxxxx'
+ }
+}
 		
-        $http.delete('/employees/' + id)
+        $http(req)
 		.then(function(response){
             $scope.employee = response.data;
             $location.path('/employees/list');
