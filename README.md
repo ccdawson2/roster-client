@@ -15,5 +15,6 @@ git clone https://github.com/ccdawson2/roster-client.git
 cd roster-client
 npm install
 bower install
+npm install -g nodemon
 npm start
 ```
