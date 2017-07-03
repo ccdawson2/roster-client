@@ -15,17 +15,6 @@ angular.module('app').factory('eventsModel', ['$http', function($http) {
 			
 	var postData = {};
 	postData.token = 'test token';
-/**
-				xx = $http({
-       method: 'GET',
-       url: rosterUrl + '/visits/?size=100',
-	   data: postData
-    });
-console.log (xx);
-console.log(xx.$$state);
-	
-console.log(xx.$$state.status);
-**/
 
 	return $http({
        method: 'GET',
@@ -53,5 +42,4 @@ console.log(xx.$$state.status);
             return $http.delete('http://localhost:10103/visits/' + id);
         }
     }
-
 }])
