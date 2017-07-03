@@ -13,7 +13,7 @@ This application accesses the following API's;
 ```shell
 git clone https://github.com/ccdawson2/roster-client.git
 cd roster-client
-npm install --save
-bower install --save
+npm install
+bower install
 npm start
 ```
